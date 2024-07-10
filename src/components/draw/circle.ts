@@ -19,6 +19,10 @@ export interface CircleComp extends Comp {
      * @since v3000.0
      */
     renderArea(): Rect;
+    /**
+     * Center of circle
+     */
+    center(): Vec2;
 }
 
 /**
@@ -53,6 +57,9 @@ export function circle(radius: number, opt: CircleCompOpt = {}): CircleComp {
                 this.radius * 2,
                 this.radius * 2,
             );
+        },
+        center() {
+            return new Vec2(this.radius, this.radius)
         },
         inspect() {
             return `radius: ${Math.ceil(this.radius)}`;
